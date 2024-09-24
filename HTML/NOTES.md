@@ -42,7 +42,6 @@
 <time>
 ```
 
-
 ## Tags:-
 > HTML tags are like keywords which defines that how web browser will format and display the content.
 
