@@ -130,3 +130,7 @@ REST fits in the existing infrastructure of the web, thus the web application ca
 > One of the most common request headers are 'Accept'.
 1. Accept:
 > Accept request-header field can be used to specify certain media types which are acceptable for the response.
+
+#### Assignment:
+1. Create REST API using MERN stack.
+2. Create REST API using Java Spring Boot.
