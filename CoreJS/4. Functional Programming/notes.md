@@ -126,3 +126,147 @@ processUserInput(greet);  // Output: "Hello, John"
 1. Passed as an Argument: A callback is passed as a parameter to another function.
 2. Executed After Completion: It is usually invoked once the function it was passed into has finished some operation.
 3. Can be Asynchronous: Callbacks are widely used in asynchronous programming, such as making HTTP requests or waiting for user input.
+
+## Higher Order Function:
+> A higher-order function is a function that does at least one of the following:
+
+1. Takes one or more functions as arguments (i.e., it can accept a function as a parameter).
+2. Returns a function as its result.
+
+> Higher-order functions are a key feature of functional programming and are commonly used in JavaScript to make code more flexible and reusable.
+
+Example of Higher-Order Functions:
+
+1. Function that takes another function as an argument:
+
+```js
+function higherOrderFunction(callback) {
+    console.log("Before executing callback");
+    callback();  // The function passed as an argument is called here
+    console.log("After executing callback");
+}
+
+function sayHello() {
+    console.log("Hello!");
+}
+
+// Passing `sayHello` as an argument to `higherOrderFunction`
+higherOrderFunction(sayHello);
+
+// Output:
+// Before executing callback
+// Hello!
+// After executing callback
+```
+
+2. Function that returns another function:
+
+```js
+
+function createMultiplier(multiplier) {
+    return function (value) {
+        return value * multiplier;  // The returned function uses the `multiplier`
+    };
+}
+
+const multiplyByTwo = createMultiplier(2);
+const multiplyByFive = createMultiplier(5);
+
+console.log(multiplyByTwo(10));  // Output: 20
+console.log(multiplyByFive(10)); // Output: 50
+```
+
+
+#### Common Higher-Order Functions in JavaScript:
+> Many built-in JavaScript methods are higher-order functions, especially those dealing with arrays.
+
+#### 1. map():
+
+```js
+const numbers = [1, 2, 3, 4];
+const squaredNumbers = numbers.map(num => num * num);
+
+console.log(squaredNumbers);  // Output: [1, 4, 9, 16]
+```
+
+#### 2. filter():
+> Takes a function that returns a boolean and creates a new array with elements that pass the test.
+
+```js
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+console.log(evenNumbers);  // Output: [2, 4, 6]
+```
+
+#### 3. reduce():
+> Takes a function and reduces the array to a single value by applying the function to each element cumulatively.
+
+```js
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((total, num) => total + num, 0);
+
+console.log(sum);  // Output: 10
+```
+
+#### 4. find()
+> Returns the first element in the array that satisfies the condition. If no element matches, it returns undefined.
+
+```js
+
+const numbers = [10, 20, 30, 40, 50];
+
+const result = numbers.find(num => num > 25);
+console.log(result);  // Output: 30 (the first number greater than 25)
+```
+
+#### 5. findIndex()
+> Returns the index of the first element in the array that satisfies cond. If no element matches, it returns -1.
+
+```js
+
+const numbers = [10, 20, 30, 40, 50];
+
+const index = numbers.findIndex(num => num > 25);
+console.log(index);  // Output: 2 (index of the first number greater than 25)
+```
+
+#### 6. some()
+> Tests whether at least one element in the array passes the test implemented by the provided function. It returns true if at least one element satisfies the condition; otherwise, it returns false.
+
+```js
+const numbers = [10, 20, 30, 40, 50];
+
+const hasLargeNumber = numbers.some(num => num > 35);
+console.log(hasLargeNumber);  // Output: true (because 40 and 50 are greater than 35)
+```
+
+#### 7. every()
+> Tests whether all elements in the array pass the test implemented by the provided function. It returns true if every element satisfies the condition; otherwise, it returns false.
+
+```js
+const numbers = [10, 20, 30, 40, 50];
+
+const allGreaterThan5 = numbers.every(num => num > 5);
+console.log(allGreaterThan5);  // Output: true (because all numbers are greater than 5)
+
+const allGreaterThan25 = numbers.every(num => num > 25);
+console.log(allGreaterThan25);  // Output: false (because 10 and 20 are not greater than 25)
+```
+
+#### forEach():
+> The forEach() method in JavaScript is used to iterate over an array and execute a provided function once for each array element. Unlike map() or filter(), forEach() does not return a new array—it simply performs the action on each element
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(function(number) {
+    console.log(number * 2);
+});
+
+```
+
+#### Note:
+```js
+> .toFixed(1)  // till 1 decimal place
+```
