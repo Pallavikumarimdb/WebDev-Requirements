@@ -189,6 +189,21 @@ const squaredNumbers = numbers.map(num => num * num);
 console.log(squaredNumbers);  // Output: [1, 4, 9, 16]
 ```
 
+#### Equivalent for Loop Version:
+
+```js
+
+const numbers = [1, 2, 3, 4];
+const doubled = [];  // Create an empty array to store the results
+
+for (let i = 0; i < numbers.length; i++) {
+    doubled.push(numbers[i] * 2);  // Apply the operation and store it in the new array
+}
+
+console.log(doubled);  // Output: [2, 4, 6, 8]
+```
+
+
 #### 2. filter():
 > Takes a function that returns a boolean and creates a new array with elements that pass the test.
 
@@ -204,10 +219,21 @@ console.log(evenNumbers);  // Output: [2, 4, 6]
 
 ```js
 const numbers = [1, 2, 3, 4];
-const sum = numbers.reduce((total, num) => total + num, 0);
+const sum = numbers.reduce((acc, num) => total + num, 0);
+// acc:- accumulator same as we initialize value "let sum=0;"
 
 console.log(sum);  // Output: 10
 ```
+
+Ex-2:
+```js
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce(function(acc, num) {
+  let updateSum=acc+num;
+  return updateSum;
+}, 0); // here 0 i.e acc value will be updated with new value updateSum
+```
+
 
 #### 4. find()
 > Returns the first element in the array that satisfies the condition. If no element matches, it returns undefined.
@@ -269,4 +295,21 @@ numbers.forEach(function(number) {
 #### Note:
 ```js
 > .toFixed(1)  // till 1 decimal place
+```
+
+
+### Advanced Techniques with Higher Order Functions:
+
+#### 1. Function Composition (Chaining HOFs)
+> Function composition involves chaining multiple higher order functions together to create more complex operations or transformations.
+
+Example:
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// Chaining map() and filter() to get even numbers squared
+const result = numbers
+  .filter(num => num % 2 === 0) // Filter even numbers
+  .map(num => num * num); // Square each number
+console.log(result); // Output: [4, 16]
 ```
