@@ -48,3 +48,87 @@ x = 10;  // No error, creates a global variable
 "use strict";
 x = 10;  // Error: `x` is not defined (you must declare variables)
 ```
+
+### 'this' with node js (non strict mode)
+
+```js
+// Global Context (Outside of Any Function)
+console.log(this);  // Output: {}
+
+
+//  Inside a Function (Non-strict Mode)
+function showThis() {
+    console.log(this);
+}
+
+showThis();  // Output: global object
+
+
+// Inside an Object Method
+const person = {
+    name: "Alice",
+    greet: function() {
+        console.log(this.name);  // Refers to the `person` object
+    }
+};
+
+person.greet();  // Output: Alice
+
+
+// Constructor Function
+function Person(name) {
+    this.name = name;
+}
+
+const person1 = new Person("John");
+console.log(person1.name);  // Output: John
+```
+
+### 'this' in node (strict):
+
+```js
+"use strict";
+
+// Global Context (Strict Mode)
+"use strict";
+
+console.log(this);  // Output: undefined
+
+
+//  Inside a Regular Function
+
+"use strict";
+
+function showThis() {
+    console.log(this);
+}
+
+showThis();  // Output: undefined
+
+
+// Inside an Object Method
+
+"use strict";
+
+const person = {
+    name: "Alice",
+    greet: function() {
+        console.log(this.name);
+    }
+};
+
+person.greet();  // Output: Alice
+
+
+// Constructor Function
+
+"use strict";
+
+function Person(name) {
+    this.name = name;
+}
+
+const person1 = new Person("John");
+console.log(person1.name);  // Output: John
+
+```
